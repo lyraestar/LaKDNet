@@ -81,7 +81,7 @@ def main():
     print(f"Reading input image: {args.input_path}")
     C = read_image(args.input_path, divisor)
     C = torch.FloatTensor(C.transpose(0, 3, 1, 2).copy()).cuda()
-    C, h, w = crop_image(C, 8, return_hw=True) # pad=8 as in run.py
+    C, h, w = crop_image(C, 8, size=True) # pad=8 as in run.py, use size=True
 
     if is_dual_mode:
         print(f"Reading left image: {args.left_image_path}")
